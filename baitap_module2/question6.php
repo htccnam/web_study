@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p style="color: red;size: 30dp;">Đăng nhập</p>
     <table border="1" style="background-color: rgb(161, 161, 239);">
@@ -21,6 +23,8 @@
         </tr>
     </table>
 
-    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang chủ</button>
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
 </body>
+
 </html>

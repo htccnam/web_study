@@ -1,0 +1,44 @@
+.dd1{
+   background-color: burlywood;
+}
+.dd2{
+    margin: 0px 90px;
+}
+.menu1{
+    height: 40px;
+    background: rgb(170, 115, 42);
+}
+.menu1>ul>li{
+    list-style-type: none;
+    display: inline-block;
+    /* tạo menu thành các ô */
+    padding: 10px;
+}
+.menu1>ul>li:hover{
+    display: inline-block;
+    background-color: burlywood;
+}
+.menudoc{
+    background: rgb(229, 210, 185);
+    font-size: 30px;
+    width: 200px;
+}
+
+.menudoc>ul>li{
+    list-style-type: none;
+}
+
+.thanhbenduoi{
+    background: white;
+}
+.thanhbenduoi>ul>li:hover{
+    /* sắp xếp thanh theo chiều ngang */
+    display: block;
+}
+.thanhbenduoi>ul>li{
+    list-style-type: none;
+    /* cái để tạo khoảng trắng giữa các ô để bấm như nút */
+    padding: 10px;
+}
+/* thẻ bỏ gạch chân của các list */
+a{text-decoration: none ;color: white;}

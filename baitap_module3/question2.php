@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai2</title>
+    <link rel="stylesheet" href="styleQuestion2.css">
+</head>
+
+<body>
+    <div style="display: flex;">
+        <div class="menudoc">
+            <ul>
+                <li><a href="">Trang chủ</a></li>
+                <li><a href="">Dịch vụ</a></li>
+                <li><a href="">Sản phẩm</a></li>
+                <li><a href="">Tin tức</a></li>
+                <li><a href="">Diễn đàn</a></li>
+                <li><a href="">Liên hệ</a></li>
+            </ul>
+
+        </div>
+        <div>
+            <div>
+                <header>
+                    <div class="logo">
+                        <div class="logo-text">THẠCH PHẠM</div>
+                        <div class="logo-subtext">SHARE THE BEST</div>
+                    </div>
+                    <p class="tagline">Học HTML và CSS cơ bản miễn phí</p>
+                </header>
+                <section class="intro">
+                    <h2>Bạn sẽ được học những gì?</h2>
+                    <p>Nếu bạn là người mới tìm hiểu về website thì serie này sẽ giúp các bạn hình dung rõ hơn việc làm
+                        một giao diện website bằng HTML và CSS vì tất cả giao diện website đều sử dụng HTML & CSS để bố
+                        cục cho giao diện, giúp bạn tự làm một giao diện website cho riêng mình.</p>
+                </section>
+            </div>
+            <div style="display: flex;">
+                <section class="content-section">
+                    <img style="width: 60px; height: 60px;" src="image/dev.jpg">
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut,
+                        posuere felis.</p>
+                    <p>Donec imperdiet suscipit accumsan.</p>
+                    <p>Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bilendrum congue.</p>
+                    <p>Pellentesque ultrices vestibulum mattis.</p>
+                    <p>Aliquam egestos nunc at ullamcorper ultricies.</p>
+                    <p>Donec feugiat velit nulla, vel sodales est ullamcorper id.</p>
+                </section>
+                <section class="content-section">
+                    <img style="width: 60px; height: 60px;" src="image/search.jpg">
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut,
+                        posuere felis.</p>
+                    <p>Donec imperdiet suscipit accumsan.</p>
+                    <p>Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bilendrum congue.</p>
+                    <p>Pellentesque ultrices vestibulum mattis.</p>
+                    <p>Aliquam egestos nunc at ullamcorper ultricies.</p>
+                    <p>Donec feugiat velit nulla, vel sodales est ullamcorper id.</p>
+                </section>
+                <section class="content-section">
+                    <img style="width: 60px; height: 60px;" src="image/dw.jpg">
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut,
+                        posuere felis.</p>
+                    <p>Donec imperdiet suscipit accumsan.</p>
+                    <p>Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bilendrum congue.</p>
+                    <p>Pellentesque ultrices vestibulum mattis.</p>
+                    <p>Aliquam egestos nunc at ullamcorper ultricies.</p>
+                    <p>Donec feugiat velit nulla, vel sodales est ullamcorper id.</p>
+                </section>
+
+            </div>
+            <footer>
+                <p>Copyright © 2015 - Belle Inc. HTML & CSS co-bldn.taiwww.thacipidan.com</p>
+            </footer>
+        </div>
+    </div>
+
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
+</body>
+
+</html>
