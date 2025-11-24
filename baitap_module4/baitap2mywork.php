@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website lập trình trên nền web</title>
+    <style>
+        /* --- CSS: Phần trang trí giao diện --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header: Màu xanh dương */
+        header {
+            background-color: #0000FF;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 {
+            color: yellow;
+            /* Chữ màu vàng */
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Menu ngang: Màu xanh lá */
+        nav {
+            background-color: #2ecc71;
+            /* Màu xanh lá */
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Layout chính: Chia cột trái phải */
+        .container {
+            display: flex;
+            min-height: 500px;
+            /* Chiều cao tối thiểu */
+        }
+
+        /* Sidebar trái: Màu tím than/xanh đậm */
+        .sidebar {
+            width: 250px;
+            background-color: #1a1a40;
+            /* Màu tối giống ảnh */
+            color: white;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            padding: 15px;
+            border-bottom: 1px dashed white;
+            /* Đường gạch đứt */
+        }
+
+        .sidebar li:hover {
+            background-color: #333366;
+            cursor: pointer;
+        }
+
+        /* Nội dung chính: Form tính toán */
+        .main-content {
+            flex-grow: 1;
+            background-color: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calc-form {
+            display: grid;
+            grid-template-columns: 150px auto;
+            /* Cột nhãn và cột input */
+            gap: 15px;
+            align-items: center;
+        }
+
+        .calc-form label {
+            text-align: right;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .calc-form input[type="text"] {
+            padding: 5px;
+            width: 200px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        #result {
+            color: blue;
+            /* Kết quả màu xanh dương */
+            font-weight: bold;
+        }
+
+        /* Footer: Chân trang */
+        footer {
+            background-color: #4b0082;
+            /* Màu tím đậm */
+            height: 50px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-area">
+            <div><img style="width: 70px; height: 50px;" src="image/logo.png" alt=""></div>
+            <div style="color: orange;">
+               BỘ GIAO THÔNG VẬN TẢI 
+               <Br>ĐẠI HỌC CÔNG NGHỆ GTVT</Br>
+            </div>
+        </div>
+        <h1>Website lập trình trên nền web</h1>
+    </header>
+
+    <nav>
+        <a href="https://docs.google.com/spreadsheets/d/1AzjKcQd6ts2JXgfnPWwNeJZ7ANmDF7rQtLoZnlYgnsw/edit?gid=1633165551#gid=1633165551 ">Trang chủ</a>
+        <a href="#">Thủ thuật</a>
+        <a href="#">Tin văn phòng</a>
+        <a href="#">Đồ họa</a>
+        <a href="#">Thiết kế web</a>
+        <a href="#">Lập trình</a>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li>Bài tập áp dụng 1</li>
+                <li>Bài tập áp dụng 2</li>
+                <li>Bài tập áp dụng 3</li>
+                <li>Bài tập áp dụng 4</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="calc-form">
+                <label>Nhập số thứ nhất:</label>
+                <input type="text" id="num1" value="6" oninput="tinhToan()">
+
+                <label>Nhập số thứ hai:</label>
+                <input type="text" id="num2" value="7" oninput="tinhToan()">
+
+                <label>Phép toán:</label>
+                <div class="radio-group">
+                    <input type="radio" name="phep" value="+" onclick="tinhToan()"> +
+                    <input type="radio" name="phep" value="-" onclick="tinhToan()"> -
+                    <input type="radio" name="phep" value="*" onclick="tinhToan()"> *
+                    <input type="radio" name="phep" value="/" onclick="tinhToan()" checked> /
+                </div>
+
+                <label>Kết quả:</label>
+                <span id="result">...</span>
+            </div>
+        </main>
+    </div>
+
+    <footer></footer>
+
+    <script>
+         // --- JavaScript: Phần xử lý tab ---
+        function showTab(tabId) {
+            // Ẩn tất cả các tab content
+            var tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            // Xóa active class từ tất cả các tab link
+            var tabLinks = document.querySelectorAll('.tab-link');
+            tabLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Hiện tab được chọn và thêm active class
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        // --- JavaScript: Phần xử lý tính toán ---
+
+        function tinhToan() {
+            // 1. Lấy giá trị từ 2 ô input
+            // Dùng parseFloat để chuyển chuỗi thành số thực
+            var n1 = parseFloat(document.getElementById('num1').value);
+            var n2 = parseFloat(document.getElementById('num2').value);
+
+            // 2. Lấy phép toán đang được chọn
+            var phepToan = document.querySelector('input[name="phep"]:checked').value;
+
+            var ketQua = 0;
+
+            // Kiểm tra xem người dùng đã nhập số chưa (tránh lỗi NaN)
+            if (isNaN(n1) || isNaN(n2)) {
+                document.getElementById('result').innerText = "";
+                return;
+            }
+
+            // 3. Thực hiện tính toán
+            if (phepToan === '+') {
+                ketQua = n1 + n2;
+            } else if (phepToan === '-') {
+                ketQua = n1 - n2;
+            } else if (phepToan === '*') {
+                ketQua = n1 * n2;
+            } else if (phepToan === '/') {
+                if (n2 === 0) {
+                    ketQua = "Không thể chia cho 0";
+                } else {
+                    ketQua = n1 / n2;
+                }
+            }
+
+            // 4. Hiển thị kết quả ra thẻ span
+            document.getElementById('result').innerText = ketQua;
+        }
+
+        // Gọi hàm tính toán một lần khi trang vừa tải xong để hiển thị kết quả mặc định
+        tinhToan();
+    </script>
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
+</body>
+
+</html>
