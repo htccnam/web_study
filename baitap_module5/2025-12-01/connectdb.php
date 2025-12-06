@@ -1,0 +1,1 @@
+<?php $conn = mysqli_connect("localhost", "root", "", "quan_ly_thu_vien") or die("Kết nối thất bại!"); ?>

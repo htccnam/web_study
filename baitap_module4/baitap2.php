@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website lập trình trên nền web - ĐH Công Nghệ GTVT</title>
+    <link rel="stylesheet" href="baitap2.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="brand-area">
+            <div class="logo-container">
+                <img src="image/logo.png" alt="Logo UTT" class="logo-img">
+            </div>
+
+            <div class="brand-text">
+                <span class="text-top">Bộ Giao thông Vận tải</span>
+                <span class="text-main">Đại học Công nghệ GTVT</span>
+                <span class="text-bottom">University of Transport Technology</span>
+            </div>
+        </div>
+
+        <div class="page-title">
+            Website lập trình trên nền web
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Thủ thuật</a>
+        <a href="#">Tin văn phòng</a>
+        <a href="#">Đồ họa</a>
+        <a href="#">Thiết kế web</a>
+        <a href="#">Lập trình</a>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li>Bài tập áp dụng 1</li>
+                <li>Bài tập áp dụng 2</li>
+                <li>Bài tập áp dụng 3</li>
+                <li>Bài tập áp dụng 4</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="calc-form">
+                <label>Nhập số thứ nhất:</label>
+                <input type="text" id="num1" value="6" oninput="tinhToan()">
+
+                <label>Nhập số thứ hai:</label>
+                <input type="text" id="num2" value="7" oninput="tinhToan()">
+
+                <label>Phép toán:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="phep" value="+" onclick="tinhToan()"> + </label>
+                    <label><input type="radio" name="phep" value="-" onclick="tinhToan()"> - </label>
+                    <label><input type="radio" name="phep" value="*" onclick="tinhToan()"> * </label>
+                    <label><input type="radio" name="phep" value="/" onclick="tinhToan()" checked> / </label>
+                </div>
+
+                <label>Kết quả:</label>
+                <span id="result">...</span>
+            </div>
+        </main>
+    </div>
+
+    <footer></footer>
+
+    <script>
+        function tinhToan() {
+            var n1 = parseFloat(document.getElementById('num1').value);
+            var n2 = parseFloat(document.getElementById('num2').value);
+            var radioBtn = document.querySelector('input[name="phep"]:checked');
+
+            if (!radioBtn) return;
+            var phepToan = radioBtn.value;
+            var ketQua = 0;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                document.getElementById('result').innerText = "";
+                return;
+            }
+
+            if (phepToan === '+') ketQua = n1 + n2;
+            else if (phepToan === '-') ketQua = n1 - n2;
+            else if (phepToan === '*') ketQua = n1 * n2;
+            else if (phepToan === '/') ketQua = n2 === 0 ? "Không thể chia 0" : n1 / n2;
+
+            document.getElementById('result').innerText = ketQua;
+        }
+        tinhToan();
+    </script>
+   
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
+
+
+</body>
+
+</html>
