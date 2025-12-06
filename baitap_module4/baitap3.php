@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Thành Tiền</title>
+    <link rel="stylesheet" href="baitap2.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="brand-area">
+            <div class="logo-container">
+                <img src="image/logo.png" alt="Logo UTT" class="logo-img">
+            </div>
+            <div class="brand-text">
+                <span class="text-top">Bộ Giao thông Vận tải</span>
+                <span class="text-main">Đại học Công nghệ GTVT</span>
+                <span class="text-bottom">University of Transport Technology</span>
+            </div>
+        </div>
+
+        <div class="page-title">
+            Website lập trình trên nền web
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Thủ thuật</a>
+        <a href="#">Tin văn phòng</a>
+        <a href="#">Đồ họa</a>
+        <a href="#">Thiết kế web</a>
+        <a href="#">Lập trình</a>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li>Bài tập áp dụng 1</li>
+                <li>Bài tập áp dụng 2</li>
+                <li>Bài tập áp dụng 3</li>
+                <li>Bài tập áp dụng 4</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="calc-form">
+                <label>Số lượng:</label>
+                <input type="text" id="soLuong" value="23" oninput="tinhTien()">
+
+                <label>Đơn giá:</label>
+                <input type="text" id="donGia" value="56" oninput="tinhTien()">
+
+                <label>Thành tiền:</label>
+                <span id="thanhTien">...</span>
+            </div>
+        </main>
+    </div>
+
+    <footer></footer>
+
+    <script>
+        function tinhTien() {
+            // 1. Lấy giá trị từ ô Số lượng và Đơn giá
+            var sl = parseFloat(document.getElementById('soLuong').value);
+            var dg = parseFloat(document.getElementById('donGia').value);
+
+            // 2. Kiểm tra nếu người dùng nhập linh tinh hoặc để trống
+            if (isNaN(sl) || isNaN(dg)) {
+                document.getElementById('thanhTien').innerText = "";
+                return;
+            }
+
+            // 3. Tính toán: Nhân số lượng với đơn giá
+            var tong = sl * dg;
+
+            // 4. Hiển thị kết quả
+            document.getElementById('thanhTien').innerText = tong;
+        }
+
+        // Gọi hàm một lần khi tải trang để hiển thị kết quả mặc định
+        tinhTien();
+    </script>
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
+</body>
+
+</html>

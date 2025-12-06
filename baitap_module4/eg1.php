@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        alert("Chào mừng đến với thử test")
+    </script>
+</head>
+<body>
+    <button onclick="alert('sự kiện click cách 1 đã được kích hoạt'); xinchao()">Nhấn vào cách 1</button>
+    <button id="myButton">Nhấn vào đây cách 2</button>
+    <script>
+        document.getElementById("myButton").onclick = function(){
+            alert("sự kiện click cách 2 đã được kích hoạt")
+        }
+    </script>
+    <H1 id="tieude">CHUYỂN MÀU KHI NHẤN CÁCH 1</H1>
+    <script>
+        function xinchao(){
+            alert("đã đổi màu thành công");
+            document.getElementById("tieude").style.color='red';
+        }
+    </script>
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
+</body>
+</html>

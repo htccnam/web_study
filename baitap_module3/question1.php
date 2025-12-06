@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleQuestion1.css">
+</head>
+
+<body>
+    <div class="dd1">
+        <div class="dd2">
+            <h1><span style="color:white ;">Slick</span><span style="color: black;">Red</span></h1>
+            <div class="menu1">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Product</a></li>
+                    <li><a href="">Design</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+            <div style="display: flex;">
+                <div class="menudoc">
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">SEO</a></li>
+                        <li><a href="">PHP</a></li>
+                        <li><a href="">Ajax</a></li>
+                        <li><a href="">JQuerry</a></li>
+                        <li><a href="">Webdesign</a></li>
+                        <li><a href="">Web programing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Template Notes</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                    <h2>More information</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                    <h2>Template Notes</h2>
+                    <p>You may use this template in any manner you like. All I ask is that you leave the link back to my
+                        site at the bottom of the page.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+        <ul>
+            <li><a href="">Flondaweb design</a></li>
+            <li><a href=""></a>web</li>
+        </ul>
+    </div>
+
+    </div>
+    
+    <button onclick="window.location.href='http://localhost/web_study/excerciseCollection.html'">quay lại trang
+        chủ</button>
+</body>
+
+</html>
