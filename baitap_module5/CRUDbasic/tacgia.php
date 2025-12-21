@@ -12,6 +12,19 @@ if (isset($_POST["buttonLuu"])) {
     $email = $_POST["textEmail"];
     $diachi = $_POST["textDiaChi"];
 
+    //kiểm tra trùng
+    $sqlChecktrung = "SELECT COUNT(*) AS tong FROM tac_gia WHERE matacgia = '$matacgia'";
+    $resultCheckTrung = mysqli_query($conn, $sqlCheckTrung);
+    $rowresultCheckTrung = mysqli_fetch_assoc($resultCheckTrung);
+    if ($rowresultCheck['tong'] > 0) {
+        echo "<script> 
+            alert('mã tác giả đã tồn tại');
+            window.history.back();
+         </script>";
+        exit;
+    }
+
+
     $sqlInsert = "INSERT INTO tac_gia
                       VALUES ('$matacgia', '$tentacgia', '$ngaysinh', '$gioitinh', '$dienthoai', '$email', '$diachi')";
     $ketqua = mysqli_query($conn, $sqlInsert) or die("Lỗi truy vấn thêm tác giả!");
@@ -22,11 +35,33 @@ if (isset($_POST["buttonLuu"])) {
     }
 }
 
+//sử lý nút xóa
+if(isset($_GET['matacgia'])){
+    $matacgia_xoa = $_GET['matacgia'];
+    $sqlDelete = "DELETE FROM tac_gia WHERE matacgia='$matacgia_xoa'";
+    mysqli_query($conn, $sqlDelete);
+
+    echo "<script> 
+        alert('xóa thành công');
+        window.location.back;
+     </script>";
+    
+}
+
 //sử lý nút tìm kiếm
 $text_timkiem = "";
 if (isset($_GET['btn_timkiem'])) {    //isset là tồn tại 
+//     $_GET ở đây dùng để:
+// Nhận dữ liệu từ form tìm kiếm
+// Lấy giá trị nhập vào ô tìm
+// Tạo câu SQL lọc dữ liệu 
+//Xem / tìm kiếm -> GET
+//Thêm / sửa / xóa -> POST
     $text_timkiem = $_GET["txt_timkiem"];
+
+
 }
+
 $sqlSelect = "SELECT * FROM tac_gia WHERE matacgia LIKE '%$text_timkiem%'";
 $resultSelect = mysqli_query($conn, $sqlSelect);
 ?>
@@ -63,11 +98,12 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
         }
 
         button {
+            
             width: 100%;
             padding: 10px;
             background-color: greenyellow;
             color: black;
-            border: none;
+            border: 2px solid black ;
             border-radius: 4px;
             cursor: pointer;
         }
@@ -102,11 +138,20 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
             /* cho trong form search trình bày lần lượt theo chiều ngang */
             display: flex;
         }
-        .button_mini{
+
+        .button_sua {
             text-decoration: none;
             border: 1px solid black;
             border-radius: 3px;
-            background-color: greenyellow; 
+            background-color: greenyellow;
+            color: black;
+        }
+
+        .button_xoa {
+            text-decoration: none;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: red;
             color: black;
         }
     </style>
@@ -114,7 +159,7 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
 
 <body>
     <form method="post" class="form" style="width: 500px; height: auto;">
-        <h1>Thông tin tác giả</h1>
+        <h1>Thêm thông tin tác giả</h1>
         <input type="text" name="textMaTacGia" placeholder="Mã tác giả" required>
         <br><br>
         <input type="text" name="textTenTacGia" placeholder="Tên tác giả" required>
@@ -171,8 +216,14 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
                     echo "<td>" . $row[6] . "</td>";
                     // Thêm nút Sửa, truyền mã tác giả qua URL param ?id_sua=...
                     //chạy sẽ ra : <a href='?id_button=TG01' class='button_mini'>Sửa</a>
-                    echo "<td><a href='?id_button= ".$row[0]."'class=button_mini>Sửa</a></td>";
-                    echo "<td><a href='?id_button=".$row[0]. "'class=button_mini>Xóa</a></td>";
+                    // CÁCH 1: Dùng nối chuỗi (khuyến khích)
+                    echo "<td>
+            <a href='suatacgia.php?matacgia=" . $row[0] . "' class='button_sua'>Sửa</a>
+            <a href='?matacgia=" . $row[0] . "' class='button_xoa' onclick=\"return confirm('Bạn có chắc muốn xóa?')\">Xóa</a>
+        </td>";
+
+                    echo "</tr>";
+
                 }
             }
             ?>
