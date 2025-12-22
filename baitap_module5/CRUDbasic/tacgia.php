@@ -13,10 +13,10 @@ if (isset($_POST["buttonLuu"])) {
     $diachi = $_POST["textDiaChi"];
 
     //kiểm tra trùng
-    $sqlChecktrung = "SELECT COUNT(*) AS tong FROM tac_gia WHERE matacgia = '$matacgia'";
+    $sqlCheckTrung = "SELECT COUNT(*) AS tong FROM tac_gia WHERE matacgia = '$matacgia'";
     $resultCheckTrung = mysqli_query($conn, $sqlCheckTrung);
     $rowresultCheckTrung = mysqli_fetch_assoc($resultCheckTrung);
-    if ($rowresultCheck['tong'] > 0) {
+    if ($rowresultCheckTrung['tong'] > 0) {
         echo "<script> 
             alert('mã tác giả đã tồn tại');
             window.history.back();
@@ -36,7 +36,7 @@ if (isset($_POST["buttonLuu"])) {
 }
 
 //sử lý nút xóa
-if(isset($_GET['matacgia'])){
+if (isset($_GET['matacgia'])) {
     $matacgia_xoa = $_GET['matacgia'];
     $sqlDelete = "DELETE FROM tac_gia WHERE matacgia='$matacgia_xoa'";
     mysqli_query($conn, $sqlDelete);
@@ -45,7 +45,7 @@ if(isset($_GET['matacgia'])){
         alert('xóa thành công');
         window.location.back;
      </script>";
-    
+
 }
 
 //sử lý nút tìm kiếm
@@ -64,6 +64,10 @@ if (isset($_GET['btn_timkiem'])) {    //isset là tồn tại
 
 $sqlSelect = "SELECT * FROM tac_gia WHERE matacgia LIKE '%$text_timkiem%'";
 $resultSelect = mysqli_query($conn, $sqlSelect);
+
+//xuất excel
+
+
 ?>
 
 <!DOCTYPE html>
@@ -98,12 +102,12 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
         }
 
         button {
-            
+
             width: 100%;
             padding: 10px;
             background-color: greenyellow;
             color: black;
-            border: 2px solid black ;
+            border: 2px solid black;
             border-radius: 4px;
             cursor: pointer;
         }
@@ -179,16 +183,29 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
         <input type="text" name="textDiaChi" placeholder="Địa chỉ" required>
         <br><br>
         <button type="submit" name="buttonLuu">Lưu</button>
+
     </form>
 
-    <form method="GET" class="formSearch">
-        <!-- 
+    <div style="display: flex;">
+        <a href="export_tacgia.php" class="button_sua" style="height: 50px;">
+            Xuất Excel
+        </a>
+        <form method="post" action="import_tacgia.php" enctype="multipart/form-data">
+            <input type="file" name="file_excel" accept=".csv" required>
+            <button type="submit" name="btn_import">Nhập Excel</button>
+        </form>
+    </div>
+    <div style="display: flex">
+
+        <form method="GET">
+            <!-- 
             id	:JavaScript, CSS → KHÔNG gửi lên server
             name :CODE php , Gửi dữ liệu lên server, backend mapping (bắt buộc) -->
-        <input type="text" name="txt_timkiem" value="<?php echo $text_timkiem ?>">
-        <!-- vì button không gửi dữ liệu gì cả nên ta chỉ khai báo id để JavaScript và CSS làm việc thôi -->
-        <button name="btn_timkiem">Tìm kiếm</button>
-    </form>
+            <input type="text" name="txt_timkiem" value="<?php echo $text_timkiem ?>">
+            <!-- vì button không gửi dữ liệu gì cả nên ta chỉ khai báo id để JavaScript và CSS làm việc thôi -->
+            <button name="btn_timkiem">Tìm kiếm</button>
+        </form>
+    </div>
 
     <table>
         <thead>
@@ -215,7 +232,7 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
                     echo "<td>" . $row[5] . "</td>";
                     echo "<td>" . $row[6] . "</td>";
                     // Thêm nút Sửa, truyền mã tác giả qua URL param ?id_sua=...
-                    //chạy sẽ ra : <a href='?id_button=TG01' class='button_mini'>Sửa</a>
+                    //chạy sẽ ra : <a href="?id_button=TG01" class="button_mini">Sửa</a>
                     // CÁCH 1: Dùng nối chuỗi (khuyến khích)
                     echo "<td>
             <a href='suatacgia.php?matacgia=" . $row[0] . "' class='button_sua'>Sửa</a>

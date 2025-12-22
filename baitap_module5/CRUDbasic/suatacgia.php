@@ -1,8 +1,6 @@
 <?php
 //kết nối database
 include_once("./connectdb.php");
-//thêm để nhập xuất excel
-
 
 //lấy data từ URL
 $matacgia = $_GET['matacgia'];
@@ -131,9 +129,11 @@ if (isset($_POST['buttonCapnhat'])) {
 <body>
     <form method="post" class="form" style="width: 500px; height: auto;">
         <h1>Thông tin tác giả</h1>
-        <p ><b>
-            Mã tác giả : <?php echo $rowresultCheck['matacgia'] ?>
+        <p><b>
+            Mã tác giả : <?php echo $rowresultCheck['matacgia']; ?>
         </b></p>
+        <br>
+        <input type="hidden" name="textMaTacGia" value="<?php echo $rowresultCheck['matacgia'] ?>">
         <br><br>
         <input type="text" name="textTenTacGia" placeholder="Tên tác giả"
             value="<?php echo $rowresultCheck['tentacgia'] ?>" required>
