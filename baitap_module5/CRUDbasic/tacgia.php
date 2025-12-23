@@ -43,14 +43,14 @@ if (isset($_GET['matacgia'])) {
 
     echo "<script> 
         alert('xóa thành công');
-        window.location.back;
+        window.history.back;
      </script>";
 
 }
 
 //sử lý nút tìm kiếm
 $text_timkiem = "";
-if (isset($_GET['btn_timkiem'])) {    //isset là tồn tại 
+if (isset($_GET['btn_timkiem'])) {    //isset là tồn tại THẺ A LUÔN GET
 //     $_GET ở đây dùng để:
 // Nhận dữ liệu từ form tìm kiếm
 // Lấy giá trị nhập vào ô tìm
@@ -64,9 +64,6 @@ if (isset($_GET['btn_timkiem'])) {    //isset là tồn tại
 
 $sqlSelect = "SELECT * FROM tac_gia WHERE matacgia LIKE '%$text_timkiem%'";
 $resultSelect = mysqli_query($conn, $sqlSelect);
-
-//xuất excel
-
 
 ?>
 
@@ -89,43 +86,59 @@ $resultSelect = mysqli_query($conn, $sqlSelect);
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: offset-x offset-y blur-radius spread-radius color;
+            0 : Đổ bóng theo trục X (trái/phải) → 0 = không lệch
+            0 : Đổ bóng theo trục Y (trên/dưới) → 0 = không lệch 
+            10px Độ mờ (blur) của bóng
+            rgba(0, 0, 0, 0.1) màu của bóng        */
         }
 
         input,
         select {
             width: 100%;
+            /* Input chiếm 100% chiều ngang của phần tử cha */
             padding: 8px;
+            /* Tạo khoảng cách bên trong input */
             margin: 5px 0 15px 0;
+            /* margin: trên | phải | dưới | trái */
             border: 1px solid #ccc;
+            /* Viền dày 1px
+            Kiểu solid (liền)
+            Màu xám nhạt */
             border-radius: 4px;
+            /* Bo tròn góc input */
             box-sizing: border-box;
+            /* width = padding + border + content = 100% ✅ */
         }
 
         button {
 
-            width: 100%;
+            width: 100%; 
+            /* button rộng bằng form cha */
             padding: 10px;
             background-color: greenyellow;
             color: black;
             border: 2px solid black;
             border-radius: 4px;
             cursor: pointer;
+            /* Khi rê chuột → hiện bàn tay */
         }
 
         table {
             margin-top: 5px;
-            /* chiều ngang 100% */
             width: 100%;
-            /* Bo sát border như Excel */
+            /* chiều ngang 100% */
             border-collapse: collapse;
-            /* chỉnh font của chữ */
+            /* Bo sát border như Excel */
             font-family: Arial, Helvetica, sans-serif;
-            /* làm border */
+            /* chỉnh font của chữ */
             border: 2px solid black;
+            /* làm border */
             border-radius: 6px;
+            /* Bo tròn góc radius */
             overflow: visible;
-            /* màu nền */
             background-color: #fff;
+            /* màu nền */
         }
 
         tr {
