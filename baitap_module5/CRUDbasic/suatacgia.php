@@ -1,11 +1,9 @@
 <?php
 //kết nối database
 include_once("./connectdb.php");
-//thêm để nhập xuất excel
-
 
 //lấy data từ URL
-$matacgia = $_GET['matacgia'];
+$matacgia = $_GET['matacgia'];  
 
 $sql = "SELECT * FROM tac_gia WHERE matacgia = '$matacgia'";
 $resultSelect = mysqli_query($conn, $sql);
@@ -131,9 +129,8 @@ if (isset($_POST['buttonCapnhat'])) {
 <body>
     <form method="post" class="form" style="width: 500px; height: auto;">
         <h1>Thông tin tác giả</h1>
-        <p ><b>
-            Mã tác giả : <?php echo $rowresultCheck['matacgia'] ?>
-        </b></p>
+        <br>
+        <input type="text" name="textMaTacGia" value="<?php echo $rowresultCheck['matacgia'] ?>" readonly>
         <br><br>
         <input type="text" name="textTenTacGia" placeholder="Tên tác giả"
             value="<?php echo $rowresultCheck['tentacgia'] ?>" required>
