@@ -155,7 +155,7 @@ if (isset($_POST['buttonCapnhat'])) {
             required>
         <br><br>
         <button type="submit" name="buttonCapnhat">Cập nhật</button>
-        <button type="button" onclick="window.location.href='http://localhost/web_study/baitap_module5/CRUDbasic/tacgia.php'"> quay lại </button>
+        <button type="button" onclick="window.location.href='../baitap_module5/CRUDbasic/tacgia.php'"> quay lại </button>
     </form>
 </body>
 
